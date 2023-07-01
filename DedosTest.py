@@ -84,4 +84,4 @@ for x in range(thread):
     thred2 = threading.Thread(target=attck)
     thred = threading.Thread(target=start)
     thred.start()
-    thred2.attck()
+    
