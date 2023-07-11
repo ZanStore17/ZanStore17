@@ -1,4 +1,4 @@
-import socket, request
+import socket, requests
 import random
 import threading
 
