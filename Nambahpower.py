@@ -1069,7 +1069,6 @@ def attck():
 for x in range(thread):
     thred = threading.Thread(target=start)
     kor = threading.Thread(target=attck)
-    kor2 = threading.Thread(target=lel)
     thred.start()
     kor.attck()
-    kor2.lel()
+    
