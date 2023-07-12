@@ -283,13 +283,7 @@ def start():
         except:
             s.close()
             print('[+] server error')
-def attck():
-    for i in range(100000):
-     print(i)
-attck()
 
 for x in range(th):
     thred = threading.Thread(target=start)
-    th = threading.Thread(target=attck)
-    th.join()
     thred.start()
