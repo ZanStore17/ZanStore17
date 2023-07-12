@@ -103,6 +103,6 @@ def start():
             s.close()
             print('[+] Server Down.')
 
-for x in range(thread):
+for x in range(th):
     thred = threading.Thread(target=start)
     thred.start()
