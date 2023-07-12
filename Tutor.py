@@ -286,7 +286,6 @@ def start():
 def attck():
     for i in range(100000):
      print(i)
-     s.send(str.encode(main_req))
 attck()
 
 for x in range(th):
