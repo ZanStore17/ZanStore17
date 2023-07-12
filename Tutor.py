@@ -102,10 +102,6 @@ def start():
         except:
             s.close()
             print('[+] Server Down.')
-def attck():
-  for kontol in range(10000000):
-    print(kontol)
-attck()
 
 for x in range(thread):
     thred = threading.Thread(target=start)
