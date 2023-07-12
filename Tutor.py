@@ -1,5 +1,5 @@
 import threading
-import socket
+import socket, requests
 import random
 userip = ["""45.68.71.21:8080
 45.68.71.21:8080
