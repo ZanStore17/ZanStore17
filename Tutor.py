@@ -342,7 +342,7 @@ def start():
   hh = random._urandom(999999)
   xx = int(0)
   nolakall = "IpAll: "+random.choice(all)+random.choice(userip)+"\r\n"
-  sockall = "Socks: "+random.choice(socks5)+random.choice(all)+random.choice(userip)+random.choice(useragents)+random.choicr(acceptall)+"\r\n"
+  sockall = "Socks: "+random.choice(socks5)+random.choice(all)+random.choice(userip)+random.choice(useragents)+random.choice(acceptall)+"\r\n"
   lolall = random.choice(useragents)+random.choice(userip)+"\r\n"
   agentall = "UserAgents: "+random.choice(useragents)+random.choice(userip)+random.choice(all)+random.choice(socks5)+random.choice(acceptall)+"\r\n"
   cekall = "Bantai: "+random.choice(all)+random.choice(userip)+random.choice(acceptall)+"\r\n"
