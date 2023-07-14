@@ -377,7 +377,7 @@ def start():
         except:
             s.close()
             print('[+] server error')
- def attck():
+def attck():
   global userip,socks5
    hh = random._urandom(5000)
    lb = random.choice("[!]","[#]","[*]")
