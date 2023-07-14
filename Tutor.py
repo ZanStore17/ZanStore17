@@ -379,7 +379,6 @@ def start():
             print('[+] server error')
          
 for x in range(th):
- if choice == 'y':
   thred = threading.Thread(target=start)
   thred.start()
   
