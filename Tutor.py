@@ -1,4 +1,4 @@
-import threading
+from threading import thread
 import os, sys
 import socket, requests
 import random
