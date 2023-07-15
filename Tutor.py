@@ -926,10 +926,12 @@ def join2():
            
 for x in range(th):
   th = threading.Thread(target=start)
-  th2 = threading.Thread(target=attck)
-  th3 = threading.Thread(target=join2)
   th.start()
+if choice == 'x':
+  th2 = threading.Thread(target=attck)
   th2.start()
+else:
+  th3 = threading.Thread(target=join2)
   th3.start()
   
   
