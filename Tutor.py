@@ -1,4 +1,3 @@
-#Ddos Own Zan:Habis Beli Cheat! mau remake jangan lupa kasih Credit Bikin nya:3333
 import threading
 import os, sys
 import socket, requests
@@ -928,11 +927,10 @@ def join2():
            
 for x in range(th):
   th = threading.Thread(target=start)
+  th2 = threading.Thread(target=attck)
+  th3 = threading.Thread(target=join2)
   th.start()
-if nama=="ya":
-  th = threading.Thread(target=attck)
-  th.start()
-else:
-  th = threading.Thread(target=join2)
-  th.start()
+  th2.start()
+  th3.start()
+  
   
