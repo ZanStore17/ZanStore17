@@ -1,5 +1,3 @@
-ck)
-  th.start()
 import threading
 import os, sys
 import socket, requests
