@@ -907,7 +907,7 @@ def join2():
   sockl = random.choice(socks5)+"\r\n"
   content = "Content-Type: application/x-www-form-urlencoded\r\n"
   length  = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
-  main_req = useragentl + acceptlol + sock1 + content + length + "\r\n"
+  main_req = useragentl + acceptlol + sockl + content + length + "\r\n"
   while True:
         try:
            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
