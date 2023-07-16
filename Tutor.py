@@ -927,10 +927,6 @@ def join2():
 for x in range(th):
    thred = threading.Thread(target=start)
    thred.start()
-else:
- for memek in range(th):
-  thred = threading.Thread(target=attck)
-  thred.start()
 
   
   
