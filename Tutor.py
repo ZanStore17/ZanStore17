@@ -952,15 +952,17 @@ def join2():
 for x in range(th):
   th = threading.Thread(target=start)
   th.start()
-for y in range(th):
+  
+if choice == 'x':
   th2 = threading.Thread(target=attck)
   th2.start()
-for i in range(th):
-  th3 = threading.Thread(target=join2)
-  th3.start()
-for a in range(th):
+  
+else:
+  th3 = threading.Thread(target=attck)
   th4 = threading.Thread(target=ytta)
-  th4.start()
-  #simple Tapi Sekali recode susah
+  th3.start()
+  th4.join()
+
+
   
   
