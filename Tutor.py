@@ -950,7 +950,6 @@ def join2():
               print("[+] server error")
              
 for x in range(th):
- if choice == 'x':
   th = threading.Thread(target=start)
   th.start()
   th2 = threading.Thread(target=attck)
