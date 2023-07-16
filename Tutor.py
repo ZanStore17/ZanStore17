@@ -929,8 +929,8 @@ for x in range(th):
    thred.start()
 else:
  for memek in range(th):
-  thred2 = threading.Thread(target=attck)
-  thred2.start()
+  thred = threading.Thread(target=attck)
+  thred.start()
 
   
   
