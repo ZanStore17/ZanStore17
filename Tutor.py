@@ -950,14 +950,17 @@ def join2():
               print("[+] server error")
              
 for x in range(th):
-  th4 = threading.Thread(target=ytta)
-  th3 = threading.Thread(target=join2)
-  th2 = threading.Thread(target=attck)
   th = threading.Thread(target=start)
-  th2.join()
-  th3.join()
-  th4.join()
   th.start()
+for y in range(th):
+  th2 = threading.Thread(target=attck)
+  th2.start()
+for i in range(th):
+  th3 = threading.Thread(target=join2)
+  th3.start()
+for a in range(th):
+  th4 = threading.Thread(target=ytta)
+  th4.start()
   #simple Tapi Sekali recode susah
   
   
