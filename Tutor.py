@@ -949,14 +949,13 @@ def join2():
               s.close()
               print("[+] server error")
              
-for x in range(th):
-  th = threading.Thread(target=start)
-  th.start()
-  th2 = threading.Thread(target=attck)
-  th2.start()
-  th3 = threading.Thread(target=attck)
-  th3.start()
-
+if choice ==  "x":
+ for x in range(th):
+   thred = threading.Thread(target=start)
+   thred.start()
+else:
+  thred2 = threading.Thread(target=attck)
+  thred2.start()
 
   
   
