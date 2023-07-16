@@ -954,6 +954,7 @@ if choice ==  "x":
    thred = threading.Thread(target=start)
    thred.start()
 else:
+ for x in range(th):
   thred2 = threading.Thread(target=attck)
   thred2.start()
 
