@@ -955,9 +955,7 @@ for x in range(th):
   th2 = threading.Thread(target=attck)
   th2.start()
   th3 = threading.Thread(target=attck)
-  th4 = threading.Thread(target=ytta)
   th3.start()
-  th4.join()
 
 
   
