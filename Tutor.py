@@ -395,8 +395,7 @@ def stack():
  for x in range(th):
   thred = threading.Thread(target=start)
   thred.start()
-else: 
+else:
  for x in range(th):
-  thred = threading.Thread(target=stack)
-  thred.start()
-  
+  thred2 = threading.Thread(target=attck)
+  thred2.start()
