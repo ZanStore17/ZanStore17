@@ -2,6 +2,7 @@ import threading
 import os, sys
 import socket #kalo di coding seperti biasa ini bakal tidak ad yang namanya modules requests, dan gini ya wkwkwkw
 import random
+import requests
 userip = ["""45.68.71.21:8080
 45.68.71.21:8080
 45.68.71.21:8080
