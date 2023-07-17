@@ -329,7 +329,6 @@ kok()
 ip = str(input("IP ATTACK>="))
 ip = socket.gethostbyname(ip)
 port = int(input("PORT >= "))
-choice = str(input("CHOICE (x)(k): ")
 pack = int(input("[ ? ] how long do you want Packet/s >="))
 th = int(input("[ ? ] how long do you want Thread/t >="))
 def randomip():
