@@ -1,3 +1,5 @@
+hred.start()
+   
 import threading
 import os, sys
 import time
@@ -392,7 +394,6 @@ def stack():
        except:
           print("[+] server error")
          
- for vr in range (th):
-   thred = threading.Thread(target=start)
-   thred.start()
-   
+ for x in range(th):
+   th = threading.Thread(target=start)
+   th.start()
