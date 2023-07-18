@@ -187,10 +187,9 @@ def start():
              s.close()
              print('[+] server error')
     for kntl in range(th):
-      if kntl == 'bego':
-       thred = threading.Thread(target=start)
-       thred.start()
-      else:
-       for kntl in range(76000):
-        thred2  = threading.Thread(target=tcp)
-        thred2.start()
+      thred = threading.Thread(target=start)
+      thred.start()
+    else:
+      for kntl in range(76000):
+       thred2  = threading.Thread(target=tcp)
+       thred2.start()
