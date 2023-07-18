@@ -906,6 +906,6 @@ for variable in range(th):
    thred.start()
   else:
    for variable in range(th):
-    thred = threading.Thread(target=attck)
+    thred = threading.Thread(target=start)
     thred.start()
    
