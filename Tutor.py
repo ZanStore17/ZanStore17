@@ -392,7 +392,7 @@ def stack():
        except:
           print("[+] server error")
          
- for variable in range(th):
+ for vr in range (th):
    thred = threading.Thread(target=start)
    thred.start()
    
