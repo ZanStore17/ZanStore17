@@ -392,10 +392,7 @@ def stack():
        except:
           print("[+] server error")
          
-for x in range(th):
-  thred = threading.Thread(target=start)
-  thred.start()
-else:
- for x in range(th):
-  thred2 = threading.Thread(target=attck)
-  thred2.start()
+ if variable == "anjgkau":
+  for variable in range(5000):
+   thred = threading.Thread(target=start)
+   thred.start()
