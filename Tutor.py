@@ -1,5 +1,4 @@
-hred.start()
-   
+
 import threading
 import os, sys
 import time
