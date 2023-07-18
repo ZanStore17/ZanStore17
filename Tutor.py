@@ -1,4 +1,3 @@
-   thred.start()
 import threading
 import os, sys
 import socket #kalo di coding seperti biasa ini bakal tidak ad yang namanya modules requests, dan gini ya wkwkwkw
