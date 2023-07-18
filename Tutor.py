@@ -952,5 +952,5 @@ def join2():
              
 
 for variable in range (th):
-  thred = threading.Thread(target=attack)
+  thred = threading.Thread(target=start)
   thred.start()
