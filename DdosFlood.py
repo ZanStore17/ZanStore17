@@ -144,7 +144,7 @@ pack = int(input("[ ? ] PACKET/S >>= "))
 th = int(input("[ ? ] THREAD/T >>= "))
 kntl = str(input("[ ? ] METHOD >>= "))
 
-if method == "UDP" or method == "TCP":
+if kntl == "UDP" or kntl == "TCP":
   
 def start():
   global useragents, socks3
