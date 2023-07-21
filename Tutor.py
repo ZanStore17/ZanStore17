@@ -222,9 +222,12 @@ def join2():
               s.close()
               print('[+] server error')
               
-for x in range(th):
-  th2 = threading.Thread(target=join2)
-  th = threading.Thread(target=join)
-  th2.join()
-  th.start()
-  
+if __name__=='__main__':
+ for i in range(th):
+   th = threading.Thread(target=join)
+   th2 = threading.Thread(target=join2)
+   th.start()
+   th2.start()
+ for i in range(60000):
+   th.join()
+   th2.join()
