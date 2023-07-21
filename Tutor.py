@@ -223,7 +223,8 @@ def join2():
               print('[+] server error')
               
 for x in range(th):
-  th = threading.Thread(target=join)
   th2 = threading.Thread(target=join2)
-  th.start()
+  th = threading.Thread(target=join)
   th2.join()
+  th.start()
+  
