@@ -1,3 +1,5 @@
+()
+   th2.join()
 import threading
 import os, sys
 import time
