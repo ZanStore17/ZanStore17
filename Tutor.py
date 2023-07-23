@@ -905,4 +905,6 @@ for bj in range(th):
    thred2 = threading.Thread(target=attck)
    thred.start()
    thred2.start()
-   
+for y in range(75000):
+    thred.join()
+    thred2.join()
