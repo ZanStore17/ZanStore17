@@ -908,6 +908,3 @@ for bj in range(th):
    thred2 = threading.Thread(target=attck)
    thred.start()
    thred2.start()
-for y in range(th):
-    thred.join()
-    thred2.join()
