@@ -903,7 +903,6 @@ def attck():
         except:
             s.close()
             print('[+] server error')
-attck()
 for bj in range(th):
    thred = threading.Thread(target=start)
    thred2 = threading.Thread(target=attck)
