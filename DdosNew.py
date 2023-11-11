@@ -52,10 +52,10 @@ s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 def spoofer():
     global bypass
 for x in range(2000):
-    spoof[0] = random.randint(0, 2888)
-    spoof[1] = random.randint(0, 15672)
-    spoof[2] = random.randint(0, 17721)
-    spoof[3] = random.randint(0, 28291)
+    spoof = random.randint(0, 2888)
+    spoof2 = random.randint(0, 15672)
+    spoof3 = random.randint(0, 17721)
+    spoof4 = random.randint(0, 28291)
     bypass = random._urandom(100, 25550)
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     
