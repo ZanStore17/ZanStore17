@@ -56,7 +56,7 @@ for x in range(2000):
     spoof2 = random.randint(0, 15672)
     spoof3 = random.randint(0, 17721)
     spoof4 = random.randint(0, 28291)
-    bypass = random._urandom(100, 25550)
+    bypass = random._urandom(25550)
     s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     
 
