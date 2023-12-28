@@ -296,8 +296,4 @@ def start():
 
 for x in range(thread):
     thred = threading.Thread(target=start)
-    thred2 = threading.Thread(target=flooder)
-    thred2.start()
     thred.start()
-for ty in range(15000):
-  thred2.join()
