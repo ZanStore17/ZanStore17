@@ -342,9 +342,6 @@ def start():
             s.close()
 
 for x in range(thread):
-    thred = threading.Thread(target=start)
-    thred2 = threading.Thread(target=start2)
-    thred2.start()
-    thred.start()
-for ty in range(thred2):
-  thred2.join()
+    thred = threading.Thread(target=start).start()
+    thred2 = threading.Thread(target=start2).start()
+    
