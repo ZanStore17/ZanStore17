@@ -347,10 +347,7 @@ def start():
 for x in range(thread):
     thred = threading.Thread(target=start)
     thred2 = threading.Thread(target=start2)
-    thred3 = threading.Thread(target=start3)
     thred2.start()
-    thred3.start()
     thred.start()
 for ty in range(15000):
   thred2.join()
-  thred3.join()
