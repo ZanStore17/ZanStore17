@@ -343,5 +343,4 @@ def start():
 
 for x in range(thread):
     thred = threading.Thread(target=start).start()
-    thred2 = threading.Thread(target=start).join()
     
