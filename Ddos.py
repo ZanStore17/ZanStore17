@@ -1,5 +1,3 @@
-me.sleep(5)
-    
 import threading
 import os, sys
 import socket
