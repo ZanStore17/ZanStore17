@@ -341,7 +341,7 @@ def start():
         except:
             s.close()
 
-for th in threads:
+for th in str(threads):
     thread = threading.Thread(target=start)
     threads.append(thread)
     thread.start()
