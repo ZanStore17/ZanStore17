@@ -350,7 +350,7 @@ for _ in range(num_threads):
     thread.start()
 for thread in threads:
     thread.join()
-for _ in range(num_threads):
+for num_threads in range(100):
     thread = threading.Thread(target=start2)
     results.append(thread)
     thread.start()
