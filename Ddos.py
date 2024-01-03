@@ -340,7 +340,7 @@ def start():
             xx += random.randint(0, int(pack))
         except:
             s.close()
-
+threads = []
 for th in str(threads):
     thread = threading.Thread(target=start)
     threads.append(thread)
