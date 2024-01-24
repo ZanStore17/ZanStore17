@@ -1,8 +1,8 @@
 import socket, struct, codecs, sys, threading, random, time, os, argparse
 
 proxys = open('proxy.txt').readlines()
-Uams = open('ua.txt').readlines()
-uambots = len(Uams)
+iyos = open('ua.txt').readlines()
+uambots = len(iyos)
 bots = len(proxys)
 
 # // Argparse
