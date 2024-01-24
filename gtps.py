@@ -108,7 +108,7 @@ def randsender(host, port, times):
 
         timeout = time.time() + float(times)
 
-        sock = socket.socket(socket.AF_INET, socket.IPPROTO_TCP)
+        sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM,socket.IPPROTO_TCP)
 
         punch = random._urandom(int(1024))
 
