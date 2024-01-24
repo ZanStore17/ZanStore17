@@ -132,7 +132,6 @@ def stdsender(host, times):
 
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-        payload = b'\x00\x00\x00\x00\x00\x00\x00\xff\x00\x00\x00\x00\x00\x00\x00\x00'os
 
         port = '3389'
 
